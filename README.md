@@ -8,3 +8,9 @@
 ```sh
 $ make install
 ```
+
+##
+
+Example of starting Brain-Even Game
+
+[![Example of starting Brain-Even Game](https://asciinema.org/a/Mb8GFNH1WVfez4PfpzQJAJ6nq.svg)](https://asciinema.org/a/Mb8GFNH1WVfez4PfpzQJAJ6nq)
