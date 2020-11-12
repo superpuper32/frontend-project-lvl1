@@ -1,14 +1,12 @@
-import promptly from 'promptly'
-
-import welcomeGreetings from './cli.js'
+import welcomeGreetings, {
+  randomInt,
+  checkEven,
+  promptAnswer,
+  finishGame,
+} from '../cli.js'
 
 const { log } = console
-const { prompt } = promptly
 const LIMIT = 100
-
-const randomInt = (max) => Math.floor(Math.random() * Math.floor(max))
-
-const checkEven = (num) => num % 2 === 0
 
 const checkAnswer = (answer, even) => {
   switch (answer) {
@@ -30,7 +28,7 @@ export default async () => {
   while (count < 3) {
     const number = randomInt(LIMIT)
     log(`Question: ${number}`)
-    const answer = await prompt('Your answer: ')
+    const answer = await promptAnswer()
     const even = checkEven(number)
     const right = checkAnswer(answer, even)
     if (right) {
@@ -42,5 +40,5 @@ export default async () => {
     }
   }
 
-  log(`Congratulations, ${name}!`)
-};
+  finishGame(name)
+}
