@@ -1,48 +1,46 @@
-import promptly from 'promptly';
+import promptly from 'promptly'
 
-const { log } = console;
-const { prompt } = promptly;
-const LIMIT = 100;
+import welcomeGreetings from './cli.js'
 
-function randomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
+const { log } = console
+const { prompt } = promptly
+const LIMIT = 100
 
-const checkEven = (num) => num % 2 === 0;
+const randomInt = (max) => Math.floor(Math.random() * Math.floor(max))
+
+const checkEven = (num) => num % 2 === 0
 
 const checkAnswer = (answer, even) => {
   switch (answer) {
     case 'yes':
-      return !!even;
+      return !!even
     case 'no':
-      return !even;
+      return !even
     default:
-      return false;
+      return false
   }
-};
+}
 
 export default async () => {
-  log('Welcome to the Brain Games!');
-  const name = await prompt('May I have your name? ');
-  let count = 0;
+  const name = await welcomeGreetings()
+  let count = 0
 
-  log(`Hello, ${name}!`);
-  log('Answer "yes" if the number is even, otherwise answer "no".');
+  log('Answer "yes" if the number is even, otherwise answer "no".')
 
   while (count < 3) {
-    const number = randomInt(LIMIT);
-    log(`Question: ${number}`);
-    const answer = await prompt('Your answer: '); // 'yes' ?? 'no'
-    const even = checkEven(number); // true ?? false
-    const right = checkAnswer(answer, even);
+    const number = randomInt(LIMIT)
+    log(`Question: ${number}`)
+    const answer = await prompt('Your answer: ')
+    const even = checkEven(number)
+    const right = checkAnswer(answer, even)
     if (right) {
       log('Correct!');
-      count += 1;
+      count += 1
     } else {
-      log(`Let's try again, ${name}!`);
-      count = 0;
+      log(`Let's try again, ${name}!`)
+      count = 0
     }
   }
 
-  log(`Congratulations, ${name}!`);
+  log(`Congratulations, ${name}!`)
 };
