@@ -11,7 +11,9 @@ export default async () => {
 
 const randomInt = (max) => Math.floor(Math.random() * Math.floor(max))
 
-const checkEven = (num) => num % 2 === 0
+const isEven = (num) => num % 2 === 0
+
+const promptQuestion = (question) => console.log(`Question: ${question}`)
 
 const promptAnswer = () => prompt('Your answer: ')
 
@@ -19,7 +21,8 @@ const finishGame = (name) => console.log(`Congratulations, ${name}!`)
 
 export {
   randomInt,
-  checkEven,
+  isEven,
+  promptQuestion,
   promptAnswer,
   finishGame,
 }

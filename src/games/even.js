@@ -1,6 +1,7 @@
 import welcomeGreetings, {
   randomInt,
-  checkEven,
+  isEven,
+  promptQuestion,
   promptAnswer,
   finishGame,
 } from '../cli.js'
@@ -19,6 +20,8 @@ const checkAnswer = (answer, even) => {
   }
 }
 
+const reverseAnswer = (answer) => (answer === 'yes' ? 'no' : 'yes')
+
 export default async () => {
   const name = await welcomeGreetings()
   let count = 0
@@ -27,14 +30,15 @@ export default async () => {
 
   while (count < 3) {
     const number = randomInt(LIMIT)
-    log(`Question: ${number}`)
+    promptQuestion(number)
     const answer = await promptAnswer()
-    const even = checkEven(number)
+    const even = isEven(number)
     const right = checkAnswer(answer, even)
     if (right) {
       log('Correct!');
       count += 1
     } else {
+      log(`${answer} is wrong answer ;(. Correct answer was ${reverseAnswer(answer)}`)
       log(`Let's try again, ${name}!`)
       count = 0
     }

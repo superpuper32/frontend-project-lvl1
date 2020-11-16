@@ -1,4 +1,4 @@
-import startBrainEven from './games/even-logic.js'
-import startBrainCalc from './games/calc-logic.js'
+import startBrainEven from './games/even.js'
+import startBrainCalc from './games/calc.js'
 
 export { startBrainEven, startBrainCalc }
