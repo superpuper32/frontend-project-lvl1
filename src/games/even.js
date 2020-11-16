@@ -3,10 +3,12 @@ import welcomeGreetings, {
   isEven,
   promptQuestion,
   promptAnswer,
+  incorrectLog,
   finishGame,
 } from '../cli.js'
 
 const { log } = console
+const MIN = 1
 const LIMIT = 100
 
 const checkAnswer = (answer, even) => {
@@ -29,17 +31,16 @@ export default async () => {
   log('Answer "yes" if the number is even, otherwise answer "no".')
 
   while (count < 3) {
-    const number = randomInt(LIMIT)
+    const number = randomInt(MIN, LIMIT)
     promptQuestion(number)
     const answer = await promptAnswer()
     const even = isEven(number)
-    const right = checkAnswer(answer, even)
-    if (right) {
+    const correctAnswer = checkAnswer(answer, even)
+    if (correctAnswer) {
       log('Correct!');
       count += 1
     } else {
-      log(`${answer} is wrong answer ;(. Correct answer was ${reverseAnswer(answer)}`)
-      log(`Let's try again, ${name}!`)
+      incorrectLog(answer, reverseAnswer(answer), name)
       count = 0
     }
   }
