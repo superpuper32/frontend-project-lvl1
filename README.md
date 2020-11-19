@@ -14,3 +14,7 @@ $ make install
 Example of starting Brain-Even Game
 
 [![Example of starting Brain-Even Game](https://asciinema.org/a/Mb8GFNH1WVfez4PfpzQJAJ6nq.svg)](https://asciinema.org/a/Mb8GFNH1WVfez4PfpzQJAJ6nq)
+
+Example of starting Brain-Calc Game
+
+[![Example of starting Brain-Calc Game](https://asciinema.org/a/SWI2sQxDcKxj1zSSYffL9MStd.svg)](https://asciinema.org/a/SWI2sQxDcKxj1zSSYffL9MStd)
