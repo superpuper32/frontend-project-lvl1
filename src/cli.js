@@ -17,6 +17,8 @@ const promptQuestion = (question) => console.log(`Question: ${question}`)
 
 const promptAnswer = () => prompt('Your answer: ')
 
+const createQuestion = (...letters) => letters.join(' ')
+
 const incorrectLog = (answer, correctAnswer, name) => {
   console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'`)
   console.log(`Let's try again, ${name}!`)
@@ -29,6 +31,7 @@ export {
   isEven,
   promptQuestion,
   promptAnswer,
+  createQuestion,
   incorrectLog,
   finishGame,
 }

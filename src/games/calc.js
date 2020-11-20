@@ -1,9 +1,7 @@
 import { cons } from '@hexlet/pairs'
 
 import startGame from '../index.js'
-import {
-  randomInt,
-} from '../cli.js'
+import { randomInt } from '../cli.js'
 
 const MIN = 1
 const LIMIT = 100
@@ -21,14 +19,15 @@ const randomSign = (operators) => {
   return operators[random]
 }
 
-const createQuestion = (a, b, sign) => `${a} ${sign} ${b}`
+// const createQuestion = (a, b, sign) => `${a} ${sign} ${b}`
+const createQuestion = (...letters) => letters.join(' ')
 
 const generateData = () => {
   const a = randomInt(MIN, LIMIT)
   const b = randomInt(MIN, LIMIT)
   const sign = randomSign(Object.keys(expressions))
 
-  const question = createQuestion(a, b, sign)
+  const question = createQuestion(a, sign, b)
   const correctAnswer = expressions[sign](a, b).toString()
 
   return cons(question, correctAnswer)
