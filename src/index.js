@@ -7,6 +7,8 @@ import welcomeGreetings, {
   finishGame,
 } from './cli.js'
 
+const MIN = 1
+const LIMIT = 100
 const ROUNDS = 3
 
 export default async (clause, generateData) => {
@@ -16,7 +18,7 @@ export default async (clause, generateData) => {
   console.log(clause)
 
   while (count < ROUNDS) {
-    const gameData = generateData()
+    const gameData = generateData(MIN, LIMIT)
     const question = car(gameData)
     const correctAnswer = cdr(gameData)
     promptQuestion(question)

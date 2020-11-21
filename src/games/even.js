@@ -6,13 +6,12 @@ import {
   isEven,
 } from '../cli.js'
 
-const MIN = 1
-const LIMIT = 100
+// const MIN = 1
+// const LIMIT = 100
 const clause = 'Answer "yes" if the number is even, otherwise answer "no".'
 
-const generateData = () => {
-  const question = randomInt(MIN, LIMIT)
-
+const generateData = (min, limit) => {
+  const question = randomInt(min, limit)
   const answer = isEven(question) ? 'yes' : 'no'
 
   return cons(question, answer)

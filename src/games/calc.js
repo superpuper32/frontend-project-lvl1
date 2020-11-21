@@ -1,10 +1,10 @@
 import { cons } from '@hexlet/pairs'
 
 import startGame from '../index.js'
-import { randomInt } from '../cli.js'
+import { randomInt, createQuestion } from '../cli.js'
 
-const MIN = 1
-const LIMIT = 100
+// const MIN = 1
+// const LIMIT = 100
 const clause = 'What is the result of the expression?'
 
 const expressions = {
@@ -13,19 +13,16 @@ const expressions = {
   '*': (a, b) => a * b,
 }
 
-const randomSign = (operators) => {
-  const random = randomInt(MIN, operators.length - 1)
+const randomSign = (min, operators) => {
+  const random = randomInt(min, operators.length - 1)
 
   return operators[random]
 }
 
-// const createQuestion = (a, b, sign) => `${a} ${sign} ${b}`
-const createQuestion = (...letters) => letters.join(' ')
-
-const generateData = () => {
-  const a = randomInt(MIN, LIMIT)
-  const b = randomInt(MIN, LIMIT)
-  const sign = randomSign(Object.keys(expressions))
+const generateData = (min, limit) => {
+  const a = randomInt(min, limit)
+  const b = randomInt(min, limit)
+  const sign = randomSign(min, Object.keys(expressions))
 
   const question = createQuestion(a, sign, b)
   const correctAnswer = expressions[sign](a, b).toString()
