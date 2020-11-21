@@ -3,8 +3,6 @@ import { cons } from '@hexlet/pairs'
 import startGame from '../index.js'
 import { randomInt, createQuestion } from '../cli.js'
 
-// const MIN = 1
-// const LIMIT = 100
 const clause = 'Find the greatest common divisor of given numbers.'
 
 const getGCD = (a, b) => (b === 0 ? a : getGCD(b, a % b))

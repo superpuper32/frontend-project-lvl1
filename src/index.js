@@ -9,6 +9,7 @@ import welcomeGreetings, {
 
 const MIN = 1
 const LIMIT = 100
+const LENGTH = 10
 const ROUNDS = 3
 
 export default async (clause, generateData) => {
@@ -18,7 +19,7 @@ export default async (clause, generateData) => {
   console.log(clause)
 
   while (count < ROUNDS) {
-    const gameData = generateData(MIN, LIMIT)
+    const gameData = generateData(MIN, LIMIT, LENGTH)
     const question = car(gameData)
     const correctAnswer = cdr(gameData)
     promptQuestion(question)

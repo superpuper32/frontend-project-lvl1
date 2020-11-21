@@ -3,8 +3,6 @@ import { cons } from '@hexlet/pairs'
 import startGame from '../index.js'
 import { randomInt, createQuestion } from '../cli.js'
 
-// const MIN = 1
-// const LIMIT = 100
 const clause = 'What is the result of the expression?'
 
 const expressions = {
