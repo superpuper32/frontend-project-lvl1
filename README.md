@@ -22,3 +22,7 @@ Example of starting Brain-Calc Game
 Example of starting Brain-GCD (Greatest Common Divisor) Game
 
 [![Example of starting Brain-GCD Game](https://asciinema.org/a/pkHVnFhvsZsuNnLg4lmcwgnNN.svg)](https://asciinema.org/a/pkHVnFhvsZsuNnLg4lmcwgnNN)
+
+Example of starting Brain-Progression Game
+
+[![Example of starting Brain-Progression Game](https://asciinema.org/a/gFbSsEtE9hpqEwvC3LdUXvRcg.svg)](https://asciinema.org/a/gFbSsEtE9hpqEwvC3LdUXvRcg)

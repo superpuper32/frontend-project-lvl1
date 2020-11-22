@@ -14,7 +14,7 @@ const generateData = (min, limit, length) => {
   const difference = randomInt(min, limit)
   const ndx = randomInt(0, length - 1)
   const sequence = createSequence(initial, difference, length)
-  const correctAnswer = sequence[ndx]
+  const correctAnswer = sequence[ndx].toString()
   sequence[ndx] = '..'
   const question = createQuestion(...sequence)
 
