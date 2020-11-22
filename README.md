@@ -26,3 +26,7 @@ Example of starting Brain-GCD (Greatest Common Divisor) Game
 Example of starting Brain-Progression Game
 
 [![Example of starting Brain-Progression Game](https://asciinema.org/a/gFbSsEtE9hpqEwvC3LdUXvRcg.svg)](https://asciinema.org/a/gFbSsEtE9hpqEwvC3LdUXvRcg)
+
+Example of starting Brain-Prime Game
+
+[![Example of starting Brain-Prime Game](https://asciinema.org/a/jjYCz4GLxahOAc4k3kX0pxBAx.svg)](https://asciinema.org/a/jjYCz4GLxahOAc4k3kX0pxBAx)
