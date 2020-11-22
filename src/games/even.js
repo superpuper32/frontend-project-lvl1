@@ -10,9 +10,9 @@ const clause = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 const generateData = (min, limit) => {
   const question = randomInt(min, limit)
-  const answer = isEven(question) ? 'yes' : 'no'
+  const correctAnswer = isEven(question) ? 'yes' : 'no'
 
-  return cons(question, answer)
+  return cons(question, correctAnswer)
 }
 
 export default () => startGame(clause, generateData)
