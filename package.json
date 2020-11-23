@@ -1,7 +1,12 @@
 {
-  "name": "@hexlet/code",
+  "name": "frontend-project-lvl1",
   "version": "1.0.0",
-  "description": "",
+  "description": "Project Brain Games is a set of five console games",
+  "keywords": [
+    "math",
+    "console",
+    "hexlet"
+  ],
   "main": "index.js",
   "bin": {
     "brain-games": "bin/brain-games.js",
@@ -18,7 +23,7 @@
     "type": "git",
     "url": "git+https://github.com/superpuper32/frontend-project-lvl1.git"
   },
-  "author": "superpuper",
+  "author": "Mikhail Pochitalin",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/superpuper32/frontend-project-lvl1/issues"
