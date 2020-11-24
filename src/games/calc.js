@@ -1,31 +1,29 @@
-import { cons } from '@hexlet/pairs'
+import startGame from '../index.js';
+import { generateRandomInt, createQuestion } from '../cli.js';
 
-import startGame from '../index.js'
-import { randomInt, createQuestion } from '../cli.js'
+const description = 'What is the result of the expression?';
 
-const clause = 'What is the result of the expression?'
-
-const expressions = {
+const mapOperatorsToExpressions = {
   '+': (a, b) => a + b,
   '-': (a, b) => a - b,
   '*': (a, b) => a * b,
-}
+};
 
 const randomSign = (min, operators) => {
-  const random = randomInt(min, operators.length - 1)
+  const random = generateRandomInt(min, operators.length - 1);
 
-  return operators[random]
-}
+  return operators[random];
+};
 
 const generateData = (min, limit) => {
-  const a = randomInt(min, limit)
-  const b = randomInt(min, limit)
-  const sign = randomSign(min, Object.keys(expressions))
+  const a = generateRandomInt(min, limit);
+  const b = generateRandomInt(min, limit);
+  const sign = randomSign(min, Object.keys(mapOperatorsToExpressions));
 
-  const question = createQuestion(a, sign, b)
-  const correctAnswer = expressions[sign](a, b).toString()
+  const question = createQuestion(a, sign, b);
+  const correctAnswer = mapOperatorsToExpressions[sign](a, b).toString();
 
-  return cons(question, correctAnswer)
-}
+  return { question, correctAnswer };
+};
 
-export default () => startGame(clause, generateData)
+export default () => startGame(description, generateData);

@@ -1,24 +1,23 @@
-import { cons } from '@hexlet/pairs'
+import startGame from '../index.js';
+import { generateRandomInt, createQuestion } from '../cli.js';
 
-import startGame from '../index.js'
-import { randomInt, createQuestion } from '../cli.js'
-
-const clause = 'What number is missing in the progression?'
+const description = 'What number is missing in the progression?';
+const SEQUENCE_LENGTH = 10;
 
 const createSequence = (initial, difference, length) => Array(length)
   .fill(initial)
-  .map((term, index) => term + difference * index)
+  .map((term, index) => term + difference * index);
 
-const generateData = (min, limit, length) => {
-  const initial = randomInt(min, limit)
-  const difference = randomInt(min, limit)
-  const ndx = randomInt(0, length - 1)
-  const sequence = createSequence(initial, difference, length)
-  const correctAnswer = sequence[ndx].toString()
-  sequence[ndx] = '..'
-  const question = createQuestion(...sequence)
+const generateData = (min, limit) => {
+  const initial = generateRandomInt(min, limit);
+  const difference = generateRandomInt(min, limit);
+  const index = generateRandomInt(0, SEQUENCE_LENGTH - 1);
+  const sequence = createSequence(initial, difference, SEQUENCE_LENGTH);
+  const correctAnswer = sequence[index].toString();
+  sequence[index] = '..';
+  const question = createQuestion(...sequence);
 
-  return cons(question, correctAnswer)
-}
+  return { question, correctAnswer };
+};
 
-export default () => startGame(clause, generateData)
+export default () => startGame(description, generateData);

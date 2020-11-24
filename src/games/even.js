@@ -1,17 +1,15 @@
-import { cons } from '@hexlet/pairs'
+import startGame from '../index.js';
+import { generateRandomInt } from '../cli.js';
 
-import startGame from '../index.js'
-import { randomInt } from '../cli.js'
+const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const clause = 'Answer "yes" if the number is even, otherwise answer "no".'
-
-const isEven = (num) => num % 2 === 0
+const isEven = (num) => num % 2 === 0;
 
 const generateData = (min, limit) => {
-  const question = randomInt(min, limit)
-  const correctAnswer = isEven(question) ? 'yes' : 'no'
+  const question = generateRandomInt(min, limit);
+  const correctAnswer = isEven(question) ? 'yes' : 'no';
 
-  return cons(question, correctAnswer)
-}
+  return { question, correctAnswer };
+};
 
-export default () => startGame(clause, generateData)
+export default () => startGame(description, generateData);

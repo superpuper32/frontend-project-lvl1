@@ -1,38 +1,44 @@
-import { car, cdr } from '@hexlet/pairs'
+import promptly from 'promptly';
+import welcomeGreetings, { generateRandomInt } from './cli.js';
 
-import welcomeGreetings, {
-  promptQuestion,
-  promptAnswer,
-  incorrectLog,
-  finishGame,
-} from './cli.js'
+const { prompt } = promptly;
 
-const MIN = 1
-const LIMIT = 100
-const LENGTH = 10
-const ROUNDS = 3
+const MIN = 1;
+const LIMIT = 100;
+const ROUNDS_LIMIT = 5;
 
-export default async (clause, generateData) => {
-  const name = await welcomeGreetings()
-  let count = 0
+const promptQuestion = (question) => console.log(`Question: ${question}`);
 
-  console.log(clause)
+const promptAnswer = () => prompt('Your answer: ');
 
-  while (count < ROUNDS) {
-    const gameData = generateData(MIN, LIMIT, LENGTH)
-    const question = car(gameData)
-    const correctAnswer = cdr(gameData)
-    promptQuestion(question)
-    const playerAnswer = await promptAnswer()
+const incorrectLog = (answer, correctAnswer, name) => {
+  console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'`);
+  console.log(`Let's try again, ${name}!`);
+};
+
+const finishGame = (name) => console.log(`Congratulations, ${name}!`);
+
+export default async (description, generateData) => {
+  const name = await welcomeGreetings();
+  console.log(description);
+  let count = 0;
+
+  while (count < generateRandomInt(MIN, ROUNDS_LIMIT)) {
+    const { question, correctAnswer } = generateData(MIN, LIMIT);
+
+    promptQuestion(question);
+    const playerAnswer = await promptAnswer();
 
     if (playerAnswer === correctAnswer) {
       console.log('Correct!');
-      count += 1
-    } else {
-      incorrectLog(playerAnswer, correctAnswer, name)
-      count = 0
+      count += 1;
+    }
+
+    if (playerAnswer !== correctAnswer) {
+      incorrectLog(playerAnswer, correctAnswer, name);
+      count = 0;
     }
   }
 
-  finishGame(name)
-}
+  finishGame(name);
+};
