@@ -1,15 +1,17 @@
 import startGame from '../index.js';
 import { generateRandomInt } from '../cli.js';
 
+const RANDOM_INT_MIN = 1;
+const RANDOM_INT_MAX = 1000;
 const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const isEven = (num) => num % 2 === 0;
 
-const generateData = (min, limit) => {
-  const question = generateRandomInt(min, limit);
+const generateQuiz = () => {
+  const question = generateRandomInt(RANDOM_INT_MIN, RANDOM_INT_MAX);
   const correctAnswer = isEven(question) ? 'yes' : 'no';
 
   return { question, correctAnswer };
 };
 
-export default () => startGame(description, generateData);
+export default () => startGame(description, generateQuiz);

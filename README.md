@@ -1,7 +1,7 @@
 # Brain Games
 
 [![Node CI](https://github.com/superpuper32/frontend-project-lvl1/workflows/Node%20CI/badge.svg)](https://github.com/superpuper32/frontend-project-lvl1/actions)
-[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a4427ff6f3549aa3cd9b/maintainability)](https://codeclimate.com/github/superpuper32/frontend-project-lvl1/maintainability)
 
 Project Brain Games is a set of five console games, built on the principle of popular mobile applications for pumping the brain.
 

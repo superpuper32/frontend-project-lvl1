@@ -1,10 +1,9 @@
 import readlineSync from 'readline-sync';
 import welcomeGreetings, { generateRandomInt } from './cli.js';
 
-const RANDOM_INT_MIN = 1;
-const RANDOM_INT_MAX = 1000;
 const ROUNDS_LIMIT_MIN = 3;
 const ROUNDS_LIMIT_MAX = 5;
+const ROUNDS_COUNT = generateRandomInt(ROUNDS_LIMIT_MIN, ROUNDS_LIMIT_MAX);
 
 const promptQuestion = (question) => console.log(`Question: ${question}`);
 
@@ -21,21 +20,19 @@ export default (description, generateQuiz) => {
   const name = welcomeGreetings();
   console.log(description);
 
-  for (let round = 1; round < generateRandomInt(ROUNDS_LIMIT_MIN, ROUNDS_LIMIT_MAX); round += 1) {
-    const { question, correctAnswer } = generateQuiz(RANDOM_INT_MIN, RANDOM_INT_MAX);
+  for (let round = 1; round <= ROUNDS_COUNT; round += 1) {
+    const { question, correctAnswer } = generateQuiz();
 
-    console.log(`Round # ${round}`);
+    console.log(`Round # ${round} of ${ROUNDS_COUNT}`);
     promptQuestion(question);
     const playerAnswer = promptAnswer();
 
     if (playerAnswer !== correctAnswer) {
       incorrectLog(playerAnswer, correctAnswer, name);
-      round = 1;
+      return;
     }
 
-    if (playerAnswer === correctAnswer) {
-      console.log('Correct!');
-    }
+    console.log('Correct!');
   }
 
   finishGame(name);
