@@ -10,9 +10,9 @@ const mapOperatorsToExpressions = {
 };
 
 const randomSign = (min, operators) => {
-  const random = generateRandomInt(min, operators.length - 1);
+  const randomIndex = generateRandomInt(min, operators.length - 1);
 
-  return operators[random];
+  return operators[randomIndex];
 };
 
 const generateData = (min, limit) => {
