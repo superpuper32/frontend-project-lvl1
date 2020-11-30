@@ -34,7 +34,6 @@
   "type": "module",
   "homepage": "https://github.com/superpuper32/frontend-project-lvl1#readme",
   "dependencies": {
-    "promptly": "^3.1.0",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {
