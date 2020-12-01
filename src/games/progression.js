@@ -1,5 +1,6 @@
 import startGame from '../index.js';
-import { generateRandomInt, createQuestion } from '../cli.js';
+import generateRandomInt from '../utils.js';
+import { createQuestion } from '../cli.js';
 
 const RANDOM_INT_MIN = 1;
 const RANDOM_INT_MAX = 100;
@@ -13,11 +14,11 @@ const createSequence = (initial, difference, length) => Array(length)
 const generateQuiz = () => {
   const initial = generateRandomInt(RANDOM_INT_MIN, RANDOM_INT_MAX);
   const difference = generateRandomInt(RANDOM_INT_MIN, RANDOM_INT_MAX);
-  const index = generateRandomInt(0, SEQUENCE_LENGTH - 1);
+  const indexSequence = generateRandomInt(0, SEQUENCE_LENGTH - 1);
   const sequence = createSequence(initial, difference, SEQUENCE_LENGTH);
-  const correctAnswer = sequence[index].toString();
-  sequence[index] = '..';
-  const question = createQuestion(...sequence);
+  const correctAnswer = sequence[indexSequence].toString();
+  const preparedSequence = sequence.map((seq, index) => (index === indexSequence ? '..' : seq));
+  const question = createQuestion(...preparedSequence);
 
   return { question, correctAnswer };
 };

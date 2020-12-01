@@ -1,9 +1,10 @@
 import startGame from '../index.js';
-import { generateRandomInt, createQuestion } from '../cli.js';
+import generateRandomInt from '../utils.js';
+import { createQuestion } from '../cli.js';
 
 const RANDOM_INT_MIN = 1;
 const RANDOM_INT_MAX = 100;
-const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (number) => {
   if (number < 2) {
@@ -27,4 +28,4 @@ const generateQuiz = () => {
   return { question, correctAnswer };
 };
 
-export default () => startGame(description, generateQuiz);
+export default () => startGame(DESCRIPTION, generateQuiz);

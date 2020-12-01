@@ -1,9 +1,10 @@
 import startGame from '../index.js';
-import { generateRandomInt, createQuestion } from '../cli.js';
+import generateRandomInt from '../utils.js';
+import { createQuestion } from '../cli.js';
 
 const RANDOM_INT_MIN = 1;
 const RANDOM_INT_MAX = 100;
-const description = 'Find the greatest common divisor of given numbers.';
+const DESCRIPTION = 'Find the greatest common divisor of given numbers.';
 
 const getGCD = (a, b) => (b === 0 ? a : getGCD(b, a % b));
 
@@ -16,4 +17,4 @@ const generateQuiz = () => {
   return { question, correctAnswer };
 };
 
-export default () => startGame(description, generateQuiz);
+export default () => startGame(DESCRIPTION, generateQuiz);
