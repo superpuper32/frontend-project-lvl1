@@ -1,5 +1,5 @@
 {
-  "name": "frontend-project-lvl1",
+  "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "Project Brain Games is a set of five console games",
   "keywords": [
@@ -16,11 +16,8 @@
     "brain-progression": "bin/brain-progression.js",
     "brain-prime": "bin/brain-prime.js"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "engines": {
-    "node": ">=14"
+    "node": ">=13"
   },
   "repository": {
     "type": "git",

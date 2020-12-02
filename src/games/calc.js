@@ -1,8 +1,7 @@
 import startGame from '../index.js';
 import generateRandomInt from '../utils.js';
 
-const RANDOM_INT_MIN = 1;
-const RANDOM_INT_MAX = 100;
+const randomIntEnum = { MIN: 1, MAX: 100 };
 const DESCRIPTION = 'What is the result of the expression?';
 
 const mapOperatorToExpression = {
@@ -12,14 +11,14 @@ const mapOperatorToExpression = {
 };
 
 const generateRandomSign = (operators) => {
-  const randomIndex = generateRandomInt(RANDOM_INT_MIN, operators.length - 1);
+  const randomIndex = generateRandomInt(randomIntEnum.MIN, operators.length - 1);
 
   return operators[randomIndex];
 };
 
-const generateQuiz = () => {
-  const a = generateRandomInt(RANDOM_INT_MIN, RANDOM_INT_MAX);
-  const b = generateRandomInt(RANDOM_INT_MIN, RANDOM_INT_MAX);
+const generateRoundQA = () => {
+  const a = generateRandomInt(randomIntEnum.MIN, randomIntEnum.MAX);
+  const b = generateRandomInt(randomIntEnum.MIN, randomIntEnum.MAX);
   const sign = generateRandomSign(Object.keys(mapOperatorToExpression));
 
   const question = `${a} ${sign} ${b}`;
@@ -28,4 +27,4 @@ const generateQuiz = () => {
   return { question, correctAnswer };
 };
 
-export default () => startGame(DESCRIPTION, generateQuiz);
+export default () => startGame(DESCRIPTION, generateRoundQA);
