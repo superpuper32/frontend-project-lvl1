@@ -10,15 +10,15 @@ Project Brain Games is a set of five console games, built on the principle of po
 ```sh
 $ make install
 ```
-Package publishing
+package publishing
 ```sh
 $ make publish
 ```
-Install a package to the operating system
+install a package to the operating system
 ```sh
 $ make link
 ```
-
+start linter
 ```sh
 $ make lint
 ```
