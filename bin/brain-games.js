@@ -1,4 +1,12 @@
 #!/usr/bin/env node
-import greetPlayer from '../src/cli.js';
+import readlineSync from 'readline-sync';
 
-greetPlayer();
+const startBrainGames = () => {
+  console.log('Welcome to the Brain Games!');
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}!`);
+};
+
+startBrainGames();
+
+export default startBrainGames;

@@ -1,9 +1,9 @@
 import startGame from '../index.js';
-import generateRandomInt from '../utils.js';
-import { createQuestion } from '../cli.js';
+import { generateRandomInt } from '../utils.js';
 
-const randomIntEnum = { MIN: 1, MAX: 100 };
+const RandomInt = { MIN: 1, MAX: 100 };
 const DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const ROUNDS_COUNT = 3;
 
 const isPrime = (number) => {
   if (number < 2) {
@@ -19,12 +19,12 @@ const isPrime = (number) => {
   return true;
 };
 
-const generateRoundQA = () => {
-  const number = generateRandomInt(randomIntEnum.MIN, randomIntEnum.MAX);
-  const question = createQuestion(number);
+const generateRound = () => {
+  const number = generateRandomInt(RandomInt.MIN, RandomInt.MAX);
+  const question = number;
   const correctAnswer = isPrime(number) ? 'yes' : 'no';
 
   return { question, correctAnswer };
 };
 
-export default () => startGame(DESCRIPTION, generateRoundQA);
+export default () => startGame(DESCRIPTION, ROUNDS_COUNT, generateRound);

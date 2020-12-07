@@ -1,19 +1,19 @@
 import startGame from '../index.js';
-import generateRandomInt from '../utils.js';
-import { createQuestion } from '../cli.js';
+import { generateRandomInt } from '../utils.js';
 
-const randomIntEnum = { MIN: 1, MAX: 100 };
+const RandomInt = { MIN: 1, MAX: 100 };
 const DESCRIPTION = 'Find the greatest common divisor of given numbers.';
+const ROUNDS_COUNT = 3;
 
-const getGCD = (a, b) => (b === 0 ? a : getGCD(b, a % b));
+const getGcd = (a, b) => (b === 0 ? a : getGcd(b, a % b));
 
-const generateRoundQA = () => {
-  const a = generateRandomInt(randomIntEnum.MIN, randomIntEnum.MAX);
-  const b = generateRandomInt(randomIntEnum.MIN, randomIntEnum.MAX);
-  const question = createQuestion(a, b);
-  const correctAnswer = getGCD(a, b).toString();
+const generateRound = () => {
+  const a = generateRandomInt(RandomInt.MIN, RandomInt.MAX);
+  const b = generateRandomInt(RandomInt.MIN, RandomInt.MAX);
+  const question = `${a} ${b}`;
+  const correctAnswer = getGcd(a, b).toString();
 
   return { question, correctAnswer };
 };
 
-export default () => startGame(DESCRIPTION, generateRoundQA);
+export default () => startGame(DESCRIPTION, ROUNDS_COUNT, generateRound);
