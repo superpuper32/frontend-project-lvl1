@@ -3,7 +3,6 @@ import { generateRandomInt } from '../utils.js';
 
 const RandomInt = { MIN: 1, MAX: 100 };
 const DESCRIPTION = 'Find the greatest common divisor of given numbers.';
-const ROUNDS_COUNT = 3;
 
 const getGcd = (a, b) => (b === 0 ? a : getGcd(b, a % b));
 
@@ -16,4 +15,4 @@ const generateRound = () => {
   return { question, correctAnswer };
 };
 
-export default () => startGame(DESCRIPTION, ROUNDS_COUNT, generateRound);
+export default () => startGame(DESCRIPTION, generateRound);

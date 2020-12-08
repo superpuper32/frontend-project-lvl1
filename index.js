@@ -1,5 +1,3 @@
-/* eslint-disable import/no-named-as-default */
-/* eslint-disable import/no-named-as-default-member */
-import startBrainGames from './bin/brain-games.js';
+import startBrainGames from './src/games/brainGames.js';
 
 export default startBrainGames;

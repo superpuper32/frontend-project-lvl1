@@ -3,7 +3,6 @@ import { generateRandomInt } from '../utils.js';
 
 const RandomInt = { MIN: 1, MAX: 100 };
 const DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-const ROUNDS_COUNT = 3;
 
 const isPrime = (number) => {
   if (number < 2) {
@@ -21,10 +20,9 @@ const isPrime = (number) => {
 
 const generateRound = () => {
   const number = generateRandomInt(RandomInt.MIN, RandomInt.MAX);
-  const question = number;
   const correctAnswer = isPrime(number) ? 'yes' : 'no';
 
-  return { question, correctAnswer };
+  return { number, correctAnswer };
 };
 
-export default () => startGame(DESCRIPTION, ROUNDS_COUNT, generateRound);
+export default () => startGame(DESCRIPTION, generateRound);
