@@ -19,10 +19,10 @@ const getRandomOperator = (operators) => {
 const generateRound = () => {
   const a = generateRandomInt(RandomInt.MIN, RandomInt.MAX);
   const b = generateRandomInt(RandomInt.MIN, RandomInt.MAX);
-  const sign = getRandomOperator(Object.keys(mapOperatorToExpression));
+  const operator = getRandomOperator(Object.keys(mapOperatorToExpression));
 
-  const question = `${a} ${sign} ${b}`;
-  const correctAnswer = mapOperatorToExpression[sign](a, b).toString();
+  const question = `${a} ${operator} ${b}`;
+  const correctAnswer = mapOperatorToExpression[operator](a, b).toString();
 
   return { question, correctAnswer };
 };
