@@ -11,10 +11,10 @@ const createProgression = (start, step, length) => Array(length)
   .map((term, index) => term + step * index);
 
 const createQuestion = (progression, index, sign) => {
-  const copyProgression = Array.from(progression);
-  copyProgression[index] = sign;
+  const copiedProgression = Array.from(progression);
+  copiedProgression[index] = sign;
 
-  return copyProgression.join(' ');
+  return copiedProgression.join(' ');
 };
 
 const generateRound = () => {
